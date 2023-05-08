@@ -69,11 +69,11 @@ if submitted:
     pr = logreg.predict_proba(ans_df)[0,1]
     col1, col2 = st.columns([1, 3])
     col1.metric('Chance of having a stroke', f'{int(pr * 100)}%')
-    if pr >= 0.5:
+    if pr >= 0.6:
         col2.write('')
         col2.error('Your chances of having a stroke are quite high. ' 
                    'You should be checked frequently.')
-    elif pr >= 0.25:
+    elif pr >= 0.3:
         col2.write('')
         col2.warning('Your chances of having a stroke are moderate. '
                      'You should monitor your health.')
